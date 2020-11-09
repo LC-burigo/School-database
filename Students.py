@@ -42,6 +42,27 @@ class Tables:
         self.Connection.commit()
         print(self.Cursor.rowcount, "ok")
 
+    def students_table(self):
+        get = "SELECT first_name, IFNULL(title, 'MISSING'), IFNULL(grade, 0) FROM students LEFT JOIN papers ON students.id = papers.student_id;"
+        self.Cursor.execute(get)
+        self.Connection.commit()
+        for x in self.Cursor:
+            print(x)
+
+    def Grade_Average(self):
+        get = "SELECT first_name, IFNULL(AVG(grade), 0) AS average FROM students LEFT JOIN papers ON students.id = papers.student_id GROUP BY students.id ORDER BY average DESC;"
+        self.Cursor.execute(get)
+        self.Connection.commit()
+        for x in self.Cursor:
+            print(x)
+
+    def Status(self):
+        get = " SELECT first_name, Ifnull(Avg(grade), 0) AS average, CASE WHEN Avg(grade) IS NULL THEN 'FAILING' WHEN Avg(grade) >= 75 THEN 'PASSING' ELSE 'FAILING' end AS passing_status FROM students LEFT JOIN papers ON students.id = papers.student_id GROUP  BY students.id ORDER  BY average DESC;"
+        self.Cursor.execute(get)
+        self.Connection.commit()
+        for x in self.Cursor:
+            print(x)
+
 
 school = Tables()
-school.Insert_Many_Into_students([(1, 'My First Book Report', 60), (1, 'My Second Book Report', 75), (2, 'Russian Lit Through The Ages', 94), (2, 'De Montaigne and The Art of The Essay', 98), (4, 'Borges and Magical Realism', 89)])
+school.Grade_Average()
