@@ -89,4 +89,4 @@ class Tables:
 
 
 school = Tables()
-school.Grade_Average()
+school.Status()
