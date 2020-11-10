@@ -32,7 +32,7 @@ In this file, i will show how this code works, and for this, i will divid my exp
         Russian Lit Throught The Ages|94|2|
         De Montaigne and The Art of The Essay|98|2|
         My First Book Report|60|1|
-        My Second Book Report|75||1|
+        My Second Book Report|75|1|
         
     * students_table
     
