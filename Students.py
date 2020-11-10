@@ -74,7 +74,7 @@ class Tables:
     def Status(self):
         get = " SELECT\
                     first_name,\
-                    Ifnull(Avg(grade), 0) AS average,\
+                    IFNULL(Avg(grade), 0) AS average,\
                     CASE\
                       WHEN Avg(grade) IS NULL THEN 'FAILING'\
                       WHEN Avg(grade) >= 75 THEN 'PASSING'\
