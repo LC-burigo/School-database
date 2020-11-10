@@ -10,5 +10,8 @@ In this file, i will show how this code works, and for this, i will divid my exp
 
 
 1) **Diagram**
+<img src="school_database.png" width=150 border=blue>
 
 
+2) **Functions and their results**
+    * _Insert_Many_Into_students_
